@@ -81,7 +81,7 @@ Aplikasi yang perlu diinstall:
 ### simKP-mamet
 simKP-mamet merupakan sistem informasi yang digunakan untuk memonitoring kerja praktik pada Departemen Teknik Material ITS. Aplikasi ini dikembangkan menggunakan laravel.
 
-### Konfigurasi simKP - mamet
+### Konfigurasi simKP-mamet
 - Instalasi<br>
 - Konfigurasi `.env`<br>
 - Me-_generate key_<br>
