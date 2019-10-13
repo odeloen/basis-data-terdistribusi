@@ -7,9 +7,10 @@ Frandita Adhitama (05111640000129)
   - [1.2 Implementasi Infrastruktur](https://github.com/odeloen/basis-data-terdistribusi/tree/master/ets#1.2-implementasi-infrasktur)
     - [Tahapan Konfigurasi](https://github.com/odeloen/basis-data-terdistribusi/tree/master/ets#tahapan-konfigurasi)
 - [2. Penggunaan Basis Data Terdistribusi dalam Aplikasi](https://github.com/odeloen/basis-data-terdistribusi/tree/master/ets#2-penggunaan-basis-data-terdistribusi-dalam-aplikasi)
-  - simKP-mamet
-  - Konfigurasi simKP-mamet
-- [3. Simulasi Fail Over]
+  - simKP-mamet(https://github.com/odeloen/basis-data-terdistribusi/tree/master/ets#simkp-mamet)
+  - Konfigurasi simKP-mamet(https://github.com/odeloen/basis-data-terdistribusi/tree/master/ets#konfigurasi-simkp-mamet)
+- [3. Simulasi Fail Over](https://github.com/odeloen/basis-data-terdistribusi/tree/master/ets#3-simulasi-fail-over)
+
 ## 1. Desain dan Implementasi Infrastruktur
 ### 1.1 Desain Infrastruktur
 ![infrastruktur](images/system-architecture.PNG)
