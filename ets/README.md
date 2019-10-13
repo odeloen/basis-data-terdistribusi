@@ -2,8 +2,8 @@
 Frandita Adhitama (05111640000129)
 
 ## Table Of Content
-- [1. Desain dan Implementasi Infrastruktur](https://github.com/odeloen/basis-data-terdistribusi/ets/#1-desain-dan-implementasi-infrastruktur)
-  - [1.1 Desain Infrastruktur](https://github.com/odeloen/basis-data-terdistribusi/ets/#1-desain-dan-implementasi-infrastruktur#1.1-desain-infrastruktur)
+- [1. Desain dan Implementasi Infrastruktur](https://github.com/odeloen/basis-data-terdistribusi/ets#1-desain-dan-implementasi-infrastruktur)
+  - [1.1 Desain Infrastruktur](https://github.com/odeloen/basis-data-terdistribusi/ets#1-desain-dan-implementasi-infrastruktur#1.1-desain-infrastruktur)
   - [1.2 Implementasi Infrastruktur]
     - [Tahapan Konfigurasi]
 - [2. Penggunaan Basis Data Terdistribusi dalam Aplikasi]
