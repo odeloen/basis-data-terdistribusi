@@ -498,8 +498,9 @@ Aplikasi yang perlu diinstall:
   ```
   vagrant up
   ```
-  Jalankan pada _command line_
-
+  Jalankan pada _command line_<br>
+    ![vagrant_up](images/vagrant-up.PNG)
+    <br>
   Untuk mengecek hasil melakukan `vagrant up`, tulis command berikut pada _command line_
   ```
   vagrant status
@@ -532,12 +533,17 @@ simKP-mamet merupakan sistem informasi yang digunakan untuk memonitoring kerja p
     ```
 - Menjalankan _laravel migration and seeding_  
     ```
-    php artisan migrate --seed
+    php artisan migrate 
+    php artisan db:seed
     ```
+    ![migration](images/laravel-database-migration.PNG)
+    ![seeding](images/laravel-database-seeding.PNG)
+ 
 - Menjalankan aplikasi pada localhost  
     ```
     php artisan serve
     ```
+    ![laravel-serve](images/laravel-serve.PNG)
 
 ## 3. Simulasi Fail Over
 - Mematikan Salah Satu Server Basis Data 
