@@ -13,7 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/retails', 'RetailController@list');
+Route::get('/retails/{county}', 'RetailController@list');
+Route::post('/retails/create', 'RetailController@create');
+Route::post('/retails/update', 'RetailController@update');
+Route::post('/retails/delete', 'RetailController@delete');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

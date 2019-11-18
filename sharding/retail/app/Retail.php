@@ -10,4 +10,8 @@ class Retail extends Eloquent
     //
     protected $connection = 'mongodb';
     protected $collection = 'retail';    
+
+    protected $fillable = [
+        'county', 'license_number'
+    ];
 }
