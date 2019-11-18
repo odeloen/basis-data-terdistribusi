@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/retails/{county}', 'RetailController@list');
+Route::get('/retails/{county}/count', 'RetailController@count');
 Route::post('/retails/create', 'RetailController@create');
 Route::post('/retails/update', 'RetailController@update');
 Route::post('/retails/delete', 'RetailController@delete');

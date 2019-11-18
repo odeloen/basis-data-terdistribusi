@@ -61,4 +61,11 @@ class RetailController extends Controller
 
         return response()->json(['message' => 'success']);
     }
+
+    public function count($county){
+        $retailCount = Retail::where('County', $county)->count();
+
+        if ($retailCount == 0) return response()->json(['message' => 'There is no record about this county']);
+        return response()->json(['retailCount' => $retailCount]);
+    }
 }
