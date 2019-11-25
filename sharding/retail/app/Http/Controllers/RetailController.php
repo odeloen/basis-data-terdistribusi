@@ -31,7 +31,7 @@ class RetailController extends Controller
     public function update(Request $request){
         $this->validate($request, [
             'county' => 'required',
-            'counties' => 'required',
+            'county_new' => 'required',
         ]);
 
         $retails = $retails = Retail::where('County', $request->county)->get();
@@ -39,7 +39,7 @@ class RetailController extends Controller
         if ($retails->count() == 0) return response()->json(['message' => 'There is no record about this county']);
 
         foreach ($retails as $retail) {
-            $retail->Counties = $request->counties;
+            $retail->County = $request->county_new;
             $retail->save();
         }
 

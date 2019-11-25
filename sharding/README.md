@@ -2,8 +2,9 @@
 
 ## Outline
 1. Instalasi docker
-1. Konfigurasi sharding MongoDB
-2. Menghubungkan MongoDB dengan Laravel
+2. Konfigurasi sharding MongoDB
+3. Menghubungkan MongoDB dengan Laravel
+4. Operasi yang tersedia
 
 ## Instalasi docker
 
@@ -120,3 +121,11 @@
         protected $collection = 'retails';                
     }
     ```
+
+## Operasi yang tersedia
+- Membaca retail yang ada pada county tertentu
+- Membuat retail baru
+- Memindah semua retail pada county tertentu ke county lain
+- Menghapus semua retail pada county tertentu
+- Menghitung banyak retail pada county tertentu
+- Membaca semua county
