@@ -67,32 +67,32 @@
 
 ## Menyambungkan Redis dengan WordPress
 1. Memasang plugin Redis Object Cache
-    ![Foto plugin](images/wp-redis/plugin.PNG)
+    ![Foto plugin](images/wp-redis/plugin.png)
 2. Membenarkan bug pada plugin agar bisa berjalan dengan cara menjalankan perintah berikut
     ```
     docker exec -it wordpress sed -i "s/return 'INFO'/return 'info'/g" /var/www/html/wp-content/plugins/redis-cache/includes/predis/src/Command/ServerInfo.php
     ```
 3. Menyalakan plugin redis
-    ![Foto enable](images/wp-redis/enable.PNG)
+    ![Foto enable](images/wp-redis/enable.png)
 4. Status Connected
-    ![Foto connected](images/wp-redis/connected.PNG)
+    ![Foto connected](images/wp-redis/connected.png)
 
 ## Percobaan Failover
 1. Masuk kedalam salah satu slave dan mengecek *cluster/replication* info
     ```
     docker exec -it node-2 redis-cli
     ```  
-    ![Foto cluster info sebelum failover](images/failover/before.PNG)
+    ![Foto cluster info sebelum failover](images/failover/before.png)
 2. Membuka *command line/terminal* lain dan mematikan *node* yang menjadi *master*  
-    ![Foto cmd mematikan node master](images/failover/shutdown.PNG)
+    ![Foto cmd mematikan node master](images/failover/shutdown.png)
 3. Menjalankan request ke WordPress      
 4. Masuk kedalam salah satu slave dan mengecek  
-    ![Foto cluster info setelah failover](images/failover/after.PNG)
+    ![Foto cluster info setelah failover](images/failover/after.png)
 
 ## Benchmarking menggunakan JMeter
 1. Percobaan 50 loop
-    ![Foto Summary 50](images/benchmarking/50.PNG)
+    ![Foto Summary 50](images/benchmarking/50.png)
 1. Percobaan 229 loop
-    ![Foto Summary 229](images/benchmarking/229.PNG)
+    ![Foto Summary 229](images/benchmarking/229.png)
 1. Percobaan 329 loop
-    ![Foto Summary 329](images/benchmarking/329.PNG)
+    ![Foto Summary 329](images/benchmarking/329.png)
