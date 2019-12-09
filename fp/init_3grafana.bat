@@ -7,7 +7,7 @@ docker run -d ^
     grafana/grafana ^
     --config="/conf/grafana.ini"
 
-timeout /t 5 /nobreak > nul
+REM timeout /t 5 /nobreak > nul
 
 REM docker cp ./grafana/grafana.ini grafana:/grafana.ini
 REM docker exec -d -it grafana grafana-server --config="/grafana.ini"
