@@ -1,0 +1,148 @@
+# Implementasi TiDB pada Laravel menggunakan Docker Desktop for Windows
+Frandita Adhitama (5116100129)  
+
+## Outline
+- Arsitektur Sistem
+- Implementasi Sistem  
+    - Prasyarat
+    - Membuat instance PD
+    - Membuat instance TiKV
+    - Membuat instance TiDB
+    - Menyambungkan Aplikasi dengan TiDB
+- Testing
+    - Testing aplikasi
+    - JMeter
+    - Sysbench
+- Failover
+- Monitoring
+    - Prometheus
+    - Grafana
+
+## Arsitektur Sistem
+
+### Gambar Arsitektur
+
+### Penjelasan Arsitektur
+
+## Implmentasi Sistem
+
+### Prasyarat
+1. Docker Desktop (dapat diunduh disini)
+2. PingCAP PD docker instance
+    ```
+    docker pull pingcap/pd
+    ```        
+3. PingCAP TiKV docker instance
+    ```
+    docker pull pingcap/tikv
+    ```
+4. PingCAP TiDB docker instance
+    ```
+    docker pull pingcap/tidb
+    ```
+5. Aplikasi Laravel
+
+### Membuat instance PD
+
+```
+docker run -d --name pd1 ^
+  --net tidbnet ^
+  --ip 192.168.16.129 ^
+  -p 51001:2379 ^
+  -p 52001:2380 ^
+  pingcap/pd:latest ^
+  --name="pd1" ^
+  --client-urls="http://0.0.0.0:2379" ^
+  --advertise-client-urls="http://192.168.16.129:2379" ^
+  --peer-urls="http://0.0.0.0:2380" ^
+  --advertise-peer-urls="http://192.168.16.129:2380" ^
+  --initial-cluster="pd1=http://192.168.16.129:2380,pd2=http://192.168.16.130:2380,pd3=http://192.168.16.131:2380"
+
+docker run -d --name pd2 ^
+  --net tidbnet ^
+  --ip 192.168.16.130 ^
+  -p 51002:2379 ^
+  -p 52002:2380 ^
+  pingcap/pd:latest ^
+  --name="pd2" ^
+  --client-urls="http://0.0.0.0:2379" ^
+  --advertise-client-urls="http://192.168.16.130:2379" ^
+  --peer-urls="http://0.0.0.0:2380" ^
+  --advertise-peer-urls="http://192.168.16.130:2380" ^
+  --initial-cluster="pd1=http://192.168.16.129:2380,pd2=http://192.168.16.130:2380,pd3=http://192.168.16.131:2380"
+
+docker run -d --name pd3 ^
+  --net tidbnet ^
+  --ip 192.168.16.131 ^
+  -p 51003:2379 ^
+  -p 52003:2380 ^
+  pingcap/pd:latest ^
+  --name="pd3" ^
+  --client-urls="http://0.0.0.0:2379" ^
+  --advertise-client-urls="http://192.168.16.131:2379" ^
+  --peer-urls="http://0.0.0.0:2380" ^
+  --advertise-peer-urls="http://192.168.16.131:2380" ^
+  --initial-cluster="pd1=http://192.168.16.129:2380,pd2=http://192.168.16.130:2380,pd3=http://192.168.16.131:2380"
+```
+
+### Membuat instance TiKV
+
+```
+docker run -d --name tikv1 ^
+  --net tidbnet ^
+  --ip 192.168.16.139 ^
+  -p 53001:20160 ^
+  pingcap/tikv:latest ^
+  --addr="0.0.0.0:20160" ^
+  --advertise-addr="192.168.16.139:20160" ^
+  --pd="192.168.16.129:2379,192.168.16.130:2379,192.168.16.131:2379"
+
+docker run -d --name tikv2 ^
+  --net tidbnet ^
+  --ip 192.168.16.140 ^
+  -p 53002:20160 ^
+  pingcap/tikv:latest ^
+  --addr="0.0.0.0:20160" ^
+  --advertise-addr="192.168.16.140:20160" ^
+  --pd="192.168.16.129:2379,192.168.16.130:2379,192.168.16.131:2379"
+
+docker run -d --name tikv3 ^
+  --net tidbnet ^
+  --ip 192.168.16.141 ^
+  -p 53003:20160 ^
+  pingcap/tikv:latest ^
+  --addr="0.0.0.0:20160" ^
+  --advertise-addr="192.168.16.141:20160" ^
+  --pd="192.168.16.129:2379,192.168.16.130:2379,192.168.16.131:2379"
+```
+
+### Membuat instance TiDB
+
+```
+docker run -d --name tidb ^
+  --net tidbnet ^
+  --ip 192.168.16.149 ^
+  -p 4000:4000 ^
+  -p 10080:10080 ^
+  pingcap/tidb:latest ^
+  --store=tikv ^
+  --path="192.168.16.129:2379,192.168.16.130:2379,192.168.16.131:2379"
+```
+
+### Menyambungkan Aplikasi dengan TiDB
+
+## Testing
+
+### Kegunaan Aplikasi
+
+### JMeter
+
+### Sysbench
+
+## Failover
+
+## Monitoring
+
+### Prometheus
+
+### Grafana
